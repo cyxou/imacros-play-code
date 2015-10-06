@@ -1,0 +1,22 @@
+{
+  "name": "imacros-play-code",
+  "version": "1.0.0",
+  "description": "A wrapper around iMacros' iimPlayCode() function.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/cyxou/imacros-play-code.git"
+  },
+  "keywords": [
+    "imacros"
+  ],
+  "author": "Alex Sukhov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cyxou/imacros-play-code/issues"
+  },
+  "homepage": "https://github.com/cyxou/imacros-play-code#readme"
+}
