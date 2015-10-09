@@ -26,7 +26,9 @@ module.exports = function (macro, opts) { "use strict";
 
 	switch (code) {
 		case -101:
-			throw new Error("\nРабота скрипта прервана пользователем.\n");
+			var err = new Error("\nРабота скрипта прервана пользователем.\n");
+			err.name = "STOPSCRIPT";
+			throw err;
 		case -920:
 		case -921:
 		case -922:
