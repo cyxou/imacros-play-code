@@ -1,4 +1,4 @@
-/* global iimPlayCode, iimGetLastExtract, iimGetLastError, window, module*/
+/* global iimPlayCode, iimGetLastExtract, iimGetLastError */
 
 /**
  * A wrapper around iimPlayCode function that allows a user to terminate script execution
