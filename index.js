@@ -8,6 +8,7 @@
  * @param  {object} opts  Optional parameters object that includes:
  *                        errorIgnore {boolean} if true than iMacros won't stop on errors uccured
  *                        timeoutStep {integer} timeout to search for a TAG on a webpage before failing with error
+ *                        successMsg {string} success message to log when macro done
  * @return {object}       Object with two properties:
  *                        code - execution code returned by iMacros' iimPlayCode() function
  *                        extract - extracted data if any;
@@ -16,6 +17,7 @@ module.exports = function (macro, opts) { 'use strict';
 	opts = opts || {};
 	var errorIgnore = opts.errorIgnore ? 'YES' : 'NO' || 'NO';
 	var timeoutStep = opts.timeoutStep || 5;
+  var successMsg = opts.successMsg || undefined;
 
   macro = 'SET !REPLAYSPEED FAST' +
 		'\nSET !ERRORIGNORE ' + errorIgnore +
@@ -25,6 +27,9 @@ module.exports = function (macro, opts) { 'use strict';
   var code = iimPlayCode(macro);
 
 	switch (code) {
+    case 1:
+      if (successMsg) window.console.info(successMsg);
+      break;
 		case -101:
 			var err = new Error('\nРабота скрипта прервана пользователем.\n');
 			err.name = 'STOPSCRIPT';
