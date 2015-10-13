@@ -12,22 +12,22 @@
  *                        code - execution code returned by iMacros' iimPlayCode() function
  *                        extract - extracted data if any;
  */
-module.exports = function (macro, opts) { "use strict";
+module.exports = function (macro, opts) { 'use strict';
 	opts = opts || {};
-	var errorIgnore = opts["errorIgnore"] ? "YES" : "NO" || "NO";
-	var timeoutStep = opts["timeoutStep"] || 1;
+	var errorIgnore = opts['errorIgnore'] ? 'YES' : 'NO' || 'NO';
+	var timeoutStep = opts['timeoutStep'] || 1;
 
-  macro = "SET !REPLAYSPEED FAST" +
-		"\nSET !ERRORIGNORE " + errorIgnore +
-		"\nSET !TIMEOUT_STEP " + timeoutStep +
-		"\n" + macro;
+  macro = 'SET !REPLAYSPEED FAST' +
+		'\nSET !ERRORIGNORE ' + errorIgnore +
+		'\nSET !TIMEOUT_STEP ' + timeoutStep +
+		'\n' + macro;
 
   var code = iimPlayCode(macro);
 
 	switch (code) {
 		case -101:
-			var err = new Error("\nРабота скрипта прервана пользователем.\n");
-			err.name = "STOPSCRIPT";
+			var err = new Error('\nРабота скрипта прервана пользователем.\n');
+			err.name = 'STOPSCRIPT';
 			throw err;
 		case -920:
 		case -921:
@@ -36,16 +36,16 @@ module.exports = function (macro, opts) { "use strict";
 		case -924:
 		case -925:
 		case -926:
-			window.console.error("Элемент не найден на текущей странице.", iimGetLastError());
+			window.console.error('Элемент не найден на текущей странице.', iimGetLastError());
 			break;
 		case -1001:
-			window.console.error("Ошибка при выполнении действия на странице.", iimGetLastError());
+			window.console.error('Ошибка при выполнении действия на странице.', iimGetLastError());
 	}
 
-	var extract = iimGetLastExtract().split("[EXTRACT]");
+	var extract = iimGetLastExtract().split('[EXTRACT]');
 
 	return {
-		"code": code,
-		"extract": extract.length === 1 ? extract[0] : extract
+		'code': code,
+		'extract': extract.length === 1 ? extract[0] : extract
 	};
-}
+};
