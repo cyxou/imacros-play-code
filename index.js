@@ -31,7 +31,7 @@ module.exports = function (macro, opts) { 'use strict';
       if (successMsg) window.console.info(successMsg);
       break;
 		case -101:
-			var err = new Error('\nРабота скрипта прервана пользователем.\n');
+			var err = new Error('\nScript execution terminated by the user.\n');
 			err.name = 'STOPSCRIPT';
 			throw err;
 		case -920:
@@ -41,10 +41,10 @@ module.exports = function (macro, opts) { 'use strict';
 		case -924:
 		case -925:
 		case -926:
-			window.console.error('Элемент не найден на текущей странице.', iimGetLastError());
+			window.console.error('Specified element was not found on the page.', iimGetLastError());
 			break;
 		case -1001:
-			window.console.error('Ошибка при выполнении действия на странице.', iimGetLastError());
+			window.console.error('Unknown error occured.', iimGetLastError());
 	}
 
 	var extract = iimGetLastExtract().split('[EXTRACT]');
