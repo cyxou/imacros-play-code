@@ -14,8 +14,8 @@
  */
 module.exports = function (macro, opts) { 'use strict';
 	opts = opts || {};
-	var errorIgnore = opts['errorIgnore'] ? 'YES' : 'NO' || 'NO';
-	var timeoutStep = opts['timeoutStep'] || 1;
+	var errorIgnore = opts.errorIgnore ? 'YES' : 'NO' || 'NO';
+	var timeoutStep = opts.timeoutStep || 1;
 
   macro = 'SET !REPLAYSPEED FAST' +
 		'\nSET !ERRORIGNORE ' + errorIgnore +
