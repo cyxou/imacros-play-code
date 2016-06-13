@@ -44,7 +44,7 @@ module.exports = function (macro, opts) { 'use strict';
 			window.console.error('Specified element was not found on the page.', iimGetLastError());
 			break;
 		case -1001:
-			window.console.error('Unknown error occured.', iimGetLastError());
+			window.console.error('Unknown error occurred.', iimGetLastError());
 	}
 
 	var extract = iimGetLastExtract().split('[EXTRACT]');
